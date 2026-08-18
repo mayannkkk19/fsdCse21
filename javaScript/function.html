@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function f (iteration) {
+            if (iteration === 0) return;
+            document.write('<br>!not coder<br>');
+            f(iteration-1);
+        }
+
+        function maths(x, y, operation) {
+            if(operation.toLowerCase() === 'add') document.write(x+y, "<br>");
+            if(operation.toLowerCase() === 'sub')  document.write(x-y, "<br>");
+        }
+
+        // f(5);
+
+        // maths(5, 10, "add");
+        // maths(5, 10, "sub");
+
+        const calcAns = (x, y, operation) => {
+            if(operation === 'add') return operation + ": " + (x+y);
+            if(operation === 'sub') return operation + ": " + (x-y);
+            if(operation === 'mul') return operation + ": " + (x*y);
+            if(operation === 'div') return operation + ": " + (x/y).toFixed(2);
+            if(operation === 'mod') return operation+ ": " + (x%y);
+        }
+
+        document.write(calcAns(5, 6, "add"), "<br>");
+        document.write(calcAns(5, 6, "sub"), "<br>");
+        document.write(calcAns(5, 6, "mul"), "<br>");
+        document.write(calcAns(5, 6, "div"), "<br>");
+        document.write(calcAns(5, 6, "mod"), "<br>");
+
+    </script>
+</body>
+</html>
