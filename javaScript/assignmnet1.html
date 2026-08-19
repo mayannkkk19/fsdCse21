@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item-card{
+            background-color: lightgreen;
+            max-width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+            border-style: solid;
+            margin-bottom: 10px;
+        }
+
+        .shoppingMenu {
+            background-color: lightgrey;
+            max-width: 400px;
+            padding: 20px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="shoppingMenu">
+        <div class="listOfItems" style="background-color: lightcoral;">
+            
+        </div>
+        <div class="buyInteraction">
+            <button  class="buynowButton">buynow</button>
+            <input class="enter-item-input">
+        </div>
+        <div class="bill-area">
+
+        </div>
+    </div>
+    <script>
+         const itemList = [
+            {
+                id: 1,
+                name: "Tea",
+                price: 10
+            },
+            {
+                id:2,
+                name: "Coffee",
+                price: 30
+            },
+            {
+                id:3,
+                name: "Atta",
+                price: 600
+            },
+            {
+                id:4,
+                name: "Sugar",
+                price: 800
+            }
+        ];
+        isHidden = 'hidden'
+
+        function buyOneProduct () {
+            if(isHidden === 'hidden') {
+                isHidden = '';
+            }else{
+                isHidden = 'hidden';
+            }
+            return isHidden;
+        }
+
+        let htmlToDisplayAll = '';
+        itemList.forEach((item) => {
+            const singleHTML = `
+            <div class="item-card">
+                <p class="item-name">${item.name}</p>
+                <p>=></p>
+                <p class="item-price">${item.price}</p>
+            </div>`;
+            htmlToDisplayAll += singleHTML;
+        });
+
+        const fullAreaWBtn =   `
+            <>
+        `;
+
+        const itemsListDiv = document.querySelector('.listOfItems');
+        itemsListDiv.innerHTML = htmlToDisplayAll;
+
+        const buynowButton = document.querySelector('.buynowButton');
+
+        buynowButton.addEventListener('click', () => {
+            const itemInput = document.querySelector('.enter-item-input');
+            const itemEntered = itemInput.value.toLowerCase();
+            console.log(itemEntered);
+
+            itemList.forEach((item) => {
+                if(item === itemEntered) {
+                    let quantity = Number(prompt("Enter quantity: "));
+                }
+            })
+        })
+
+    </script>
+</body>
+</html>
