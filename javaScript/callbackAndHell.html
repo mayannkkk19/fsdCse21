@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function greet (name, callback) {
+            console.log(name);
+            callback();
+        }
+
+        greet ("Mayank", () => {
+            console.log('Greeting function already ran!');
+        });
+
+        function sum(a, b) {
+            return a+b;
+        }
+
+        function sumWithMsg (clbk, msg) {
+            const result = clbk(10, 24);
+            const fres = "Hi" + msg + "Your score is" + result;
+            console.log(fres);
+        }
+
+        sumWithMsg(sum, "Tester");
+
+    </script>
+</body>
+</html>
