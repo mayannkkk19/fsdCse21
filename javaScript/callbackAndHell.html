@@ -7,6 +7,7 @@
 </head>
 <body>
     <script>
+        /*
         function greet (name, callback) {
             console.log(name);
             callback();
@@ -27,7 +28,36 @@
         }
 
         sumWithMsg(sum, "Tester");
+        */
 
+        function test1(cb) {
+            setTimeout(() => {
+                console.log("test1");
+                cb();
+            }, 2000);
+        }
+
+        function test2(cb) {
+            setTimeout(() => {
+                console.log("test2");
+                cb();
+            }, 1000);
+        }
+
+        function test3(cb) {
+            setTimeout(() => {
+                console.log("test3");
+                cb();
+            }, 4000);
+        }
+
+        test1(() => {
+            test2(() => {
+                test3(() => {
+                    console.log("All tests ran!"); 
+                })
+            })
+        });
     </script>
 </body>
 </html>
