@@ -16,10 +16,18 @@
         */
 
         //map
+        /*
         const newArr = [1, 2, 3, 4, 5, 6];
         const doubleNewArr = newArr.map(element =>  element*2);
         console.log(doubleNewArr);
-        
+        */
+
+        //reduce
+        const newArr = [1, 2, 3, 4, 5, 6, 7];
+        const total = newArr.reduce((accumulator, current) => {
+            return accumulator + current;
+        }, 0);
+        console.log(total);
     </script>
 </body>
 </html>
