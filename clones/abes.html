@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            height: 1000px;
+        }
+
+
+        .header {
+            display: flex;
+            background-color: black;
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-bottom-color: white;
+
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+
+            justify-content: space-between;
+
+            padding-top: 4px;
+            ;
+            padding-bottom: 2px;
+
+            z-index: 1000;
+        }
+
+        .tabs {
+            display: flex;
+            color: white;
+            justify-content: space-evenly;
+            align-items: center;
+            margin-right: 100px;
+            ;
+        }
+
+        .tab {
+            padding: 28px;
+            font-family: arial;
+            font-weight: 700;
+        }
+
+        .logo {
+            margin-left: 28px;
+        }
+
+        .videoContainer {
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .videoContainer video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .text-overlay {
+            z-index: 500;
+            position: relative;
+
+            top: 340px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        p {
+            margin: 0;
+        }
+
+        .welcome {
+            color: white;
+            font-family: arial;
+            font-weight: 700;
+            font-size: 80px;
+            text-align: center;
+        }
+
+        .sub-welcome {
+            max-width: 640px;
+            color: white;
+            font-family: arial;
+            font-weight: 500;
+            font-size: 20px;
+            text-align: center;
+
+            margin-top: 20px;
+        }
+
+        .mainContent {
+            margin-top: 600px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .firstRow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-left: 80px;
+            padding-right: 80px;
+            margin-bottom: 100px;
+        }
+
+        .glanceHeading {
+            font-family: arial;
+            font-size: 42px;
+            font-weight: 700;
+        }
+
+        .glanceText {
+            max-width: 560px;
+            font-family: arial;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 24px;
+        }
+
+        footer {
+            width: 100%;
+            background: #151514;
+            color: #fff;
+            padding: 50px 80px 25px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr 1fr 2fr;
+            gap: 60px;
+        }
+
+        .footer-column h2 {
+            font-size: 18px;
+            margin-bottom: 22px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 14px;
+        }
+
+        .footer-links a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 500;
+            transition: .3s;
+        }
+
+        .footer-links a:hover {
+            color: #d4d4d4;
+        }
+
+        .address {
+            text-align: center;
+        }
+
+        .address p {
+            margin-bottom: 14px;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .address a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .social-icons {
+            margin-top: 25px;
+            display: flex;
+            justify-content: center;
+            gap: 22px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 22px;
+            transition: .3s;
+        }
+
+        .social-icons a:hover {
+            color: #bfbfbf;
+        }
+
+        .footer-logo {
+            margin: 70px auto 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-bottom {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer-bottom hr {
+            border: none;
+            border-top: 2px solid rgba(255, 255, 255, .8);
+        }
+
+        .footer-bottom p {
+            font-size: 18px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        @media(max-width:auto) {
+
+            .footer-top {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .address {
+                text-align: left;
+            }
+
+            .social-icons {
+                justify-content: flex-start;
+            }
+
+            .footer-bottom {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom hr {
+                display: none;
+            }
+
+            .footer-bottom p {
+                text-align: center;
+            }
+
+            footer {
+                padding: 40px 25px;
+            }
+
+            .footer-links {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        .marquee {
+            font-family: arial;
+            font-size: 30px;
+            margin-bottom: 24px;
+            color: darkcyan;
+        }
+
+        .links {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+
+            background: black;
+            min-width: 180px;
+            padding: 10px 0;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu div {
+            padding: 10px 15px;
+        }
+
+        .dropdown-menu div:hover {
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img class="logo" src="https://www.abes.ac.in/assets/Logo.webp" width="180px" height="80px">
+        <div class="tabs">
+            <div class="tab">About</div>
+            <div class="tab dropdown">
+                Admissions
+
+                <div class="dropdown-menu">
+                    <div>Eligibility</div>
+                    <div>Courses</div>
+                    <div>Fee Structure</div>
+                    <div>Application Process</div>
+                </div>
+            </div>
+
+            <div class="tab dropdown">
+                Academics
+
+                <div class="dropdown-menu">
+                    <div>Eligibility</div>
+                    <div>Courses</div>
+                    <div>Fee Structure</div>
+                    <div>Application Process</div>
+                </div>
+            </div>
+            <div class="tab">Clubs</div>
+            <div class="tab">Campus</div>
+            <div class="tab">Placements</div>
+            <div class="tab">Research</div>
+            <div class="tab">Entrepreneurship</div>
+        </div>
+    </div>
+    <div class="welcomeScreen">
+        <div class=videoContainer>
+            <video autoplay="" loop="" muted="">
+                <source src="./1 Home Page Banner.webm" type="video/webm">
+            </video>
+        </div>
+        <div class="text-overlay">
+            <p class="welcome">Welcome to ABES</p>
+            <p class="sub-welcome">Recognized among the best engineering colleges in the Delhi NCR, ABES Engineering
+                College blends academic excellence with industry-ready learning.</p>
+        </div>
+    </div>
+
+    <div class="mainContent">
+        <marquee class="marquee static-value pledge">
+            <div class="track">
+                <span>“We pledge to position India as a Vishwa Guru in AI, leading innovation, ethics, and education,
+                    fulfilling our Prime Minister’s vision”.</span>
+                <span>“Autonomous College since 2025”</span>
+            </div>
+        </marquee>
+        <div class="firstRow">
+            <div class="glanceHeading">
+                ABES at a Glance
+            </div>
+            <div class="glanceText">
+                For over two decades, ABES has firmly established itself in society as epitome of outcome-focused
+                learning. Its enduring reputation embodies trust and value.
+            </div>
+        </div>
+    </div>
+
+    <footer>
+
+        <div class="footer-top">
+
+            <!-- Mandatory Disclosures -->
+            <div class="footer-column">
+
+                <p style="font-weight:500; font-family: arial; font-size:22px">Mandatory Disclosures</p>
+
+                <div class="footer-links" style="font-family: arial;">
+
+                    <ul>
+                        <li><span class="links" href="#">Mandatory Disclosure</span></li>
+                        <li><span class="links" href="#">AICTE Approval</span></li>
+                        <li><span class="links" href="#">University Affiliation Letter</span></li>
+                        <li><span class="links" href="#">Education Verification</span></li>
+                        <li><span class="links" href="#">Audited Statement</span></li>
+                        <li><span class="links" href="#">Student's Request Form (SIS)</span></li>
+                        <li><span class="links" href="#">Academic Calendar</span></li>
+                        <li><span class="links" href="#">Barrier Free Environment Certificate</span></li>
+                    </ul>
+
+                    <ul>
+                        <li><span class="links" href="#">Hostel Rule Booklet</span></li>
+                        <li><span class="links" href="#">Refund Policy</span></li>
+                        <li><span class="links" href="#">College Policy</span></li>
+                        <li><span class="links" href="#">Grievance Redressal Portal</span></li>
+                        <li><span class="links" href="#">All Committees</span></li>
+                        <li><span class="links" href="#">Report ARIIA 2020</span></li>
+                        <li><span class="links" href="#">TEDx Brochure</span></li>
+                        <li><span class="links" href="#">Circulars / Notices</span></li>
+                        <li><span class="links" href="#">UGC Section 2(f) Certificate</span></li>
+                        <li><span class="links" href="#">Newsletters</span></li>
+                        <li><span class="links" href="#">University Appointment of Ombudsman</span></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <!-- Address -->
+
+            <div class="footer-column address">
+
+                <h2>Address</h2>
+
+                <p>19th KM Stone</p>
+                <p>NH-09 Ghaziabad (UP)</p>
+                <p>PIN - 201009</p>
+
+                <p><a href="tel:01207135112">Phone no. 01207135112</a></p>
+
+                <p><a href="mailto:info@example.com">Email: info@example.com</a></p>
+
+                <div class="social-icons">
+
+                    <span class="links" href="#"><i class="fab fa-facebook"></i></span>
+                    <span class="links" href="#"><i class="fab fa-instagram"></i></span>
+                    <span class="links" href="#"><i class="fab fa-x-twitter"></i></span>
+                    <span class="links" href="#"><i class="fab fa-linkedin"></i></span>
+                    <span class="links" href="#"><i class="fab fa-youtube"></i></span>
+
+                </div>
+
+            </div>
+
+            <!-- Important Links -->
+
+            <div class="footer-column">
+
+                <h2>Important Links</h2>
+
+                <div class="footer-links">
+
+                    <ul>
+                        <li><span class="links" href="#">Turnitin</span></li>
+                        <li><span class="links" href="#">No-Dues Portal</span></li>
+                        <li><span class="links" href="#">Disclaimer</span></li>
+                        <li><span class="links" href="#">UAV</span></li>
+                        <li><span class="links" href="#">RTI</span></li>
+                        <li><span class="links" href="#">Academic Results</span></li>
+                    </ul>
+
+                    <ul>
+                        <li><span class="links" href="#">Admissions</span></li>
+                        <li><span class="links" href="#">Career</span></li>
+                        <li><span class="links" href="#">CETL (SIS)</span></li>
+                        <li><span class="links" href="#">Virtual Tour</span></li>
+                        <li><span class="links" href="#">I &amp; E Policies</span></li>
+                        <li><span class="links" href="#">Library</span></li>
+                        <li><span class="links" href="#">Placement Referral Link</span></li>
+                        <li><span class="links" href="#">Undertaking</span></li>
+                        <li><span class="links" href="#">Contact Us</span></li>
+                        <li><span class="links" href="#">Search</span></li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Dummy Logo -->
+
+        <img class="footer-logo" src="https://www.abes.ac.in/assets/Logo.webp" width="180px" height="80px">
+
+        <!-- Bottom -->
+
+        <div class="footer-bottom">
+
+            <hr>
+
+            <p>All Rights Reserved. ABES Engineering College</p>
+
+            <hr>
+
+        </div>
+
+    </footer>
+    <script src="./info.js">
+
+    </script>
+</body>
+
+</html>
