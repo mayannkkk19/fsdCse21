@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            width: 80%;
+            border-style: solid;
+            border-width: 1px;
+            border-color: red;
+            color: red;
+            margin: auto;
+            padding: 10px;
+        }
+
+        img {
+            object-fit: cover;
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body style="padding: 0">
+    <div style="">
+        <h1>Products</h1>
+        <div id="data" style="display: grid; grid-template-columns: 25% 25% 25% 25%; gap: 10px;">
+
+    </div>
+    </div>
+    
+
+    <script>
+
+        const ele = document.getElementById('data');
+        const URL = 'https://dummyjson.com/products';
+        async function getData() {
+            const res = await fetch(URL);
+            const data = await res.json();
+            const products = await data.products;
+
+            console.log(products);
+
+            let allProductsHTML = ``;
+            products.forEach((product) => {
+                const productCardHTML = `
+                <div style="background-color: lightgreen; width:90%; height:350px; margin-bottom: 10px; padding: 10px;">
+                    <div>
+                        <img src=${product.images[0]}>
+                    </div>
+                    <div style="background-color: lightpink; padding:10px;">
+                        <h4>${product.title}</h4>
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <p>${product.category}</p>
+                            <p style="display: inline-block">₹${product.price}</p>
+                        </div>
+                        <button style="margin-left: 150px;">Add to cart</button>
+                    </div>
+                </div>
+            `;
+                allProductsHTML += productCardHTML;
+            })
+
+            ele.innerHTML = allProductsHTML;
+        }
+        getData();
+    </script>
+</body>
+
+</html>
