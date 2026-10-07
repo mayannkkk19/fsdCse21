@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function Counter () {
     const [count, setCount] = useState(0)
     const [flag, setFlag] = useState('none');
+
+    useEffect(() => {
+        setTimeout(() => {
+            setCount(count + 1);
+        }, 1000);
+    }, [count]);
 
     function countUp () {
         if(count === 20) {
