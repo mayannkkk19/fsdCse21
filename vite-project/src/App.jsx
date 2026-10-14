@@ -1,19 +1,28 @@
 import React from "react";
-import { cars } from "./data/car-list";
-import ItemCard from "./components/ItemCard";
-
-const App = () => {
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { items } from "./data/car-list";
+import { ItemCard } from "./components/ItemCard";
+import { Home } from "./pages/Home";
+import { Phone } from "./pages/Phone";
+import { About } from "./pages/About";
+function App() {
   return (
-    <div className="items-grid">
-      {
-        cars.map(({heading, name, image, price}) => {
-          return (
-            <ItemCard heading={heading} name={name} image={image} price={price} />
-          );
-        })
-      }
+    <div>
+      <BrowserRouter>
+      <nav>
+        <Link to="/" >Home Page </Link> | {" "}
+        <Link to="/about"> ABOUT PAGE </Link> | {" "}
+        <Link to="/phone">PHONE NO</Link> | {" "}
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />}></Route>
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/phone" element={<Phone />}></Route>
+      </Routes>
+      </BrowserRouter>
     </div>
   );
-};
+}
 
 export default App;
