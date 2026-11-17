@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class Initial {
 
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
         // int[] nums = {1, 2, 3, 4, 5, 6, 7, 9};
         // System.out.println(nums[4]);
 
@@ -14,7 +16,6 @@ public class Initial {
         // car[3] = "car4";
         // car[4] = "car5";
         // System.out.println(car[3]);
-        Scanner sc = new Scanner(System.in);
 
         // String[] car = new String[5];
         // for(int i = 0; i < 5; i++) {
@@ -33,24 +34,24 @@ public class Initial {
         // password = sc.nextLine();
         // System.out.println("Password correct, welcome!");
 
-        int[] pool = {1, 2, 3, 4, 5};
-        int[] entry = {1, 7, 3};
+        // int[] pool = {1, 2, 3, 4, 5};
+        // int[] entry = {1, 4, 3};
 
-        for(int i = 0; i < 3; i++) {
-            boolean isFound = false;
-            for(int j = 0; j < 5; j++) {
-                if(entry[i] == pool[j]) {
-                    isFound = true;
-                }
-            }
-            if(isFound){
-                continue;
-            }else{
-                System.out.println("Password mismatch!");
-                return;
-            }
-        }
+        // for(int i = 0; i < 3; i++) {
+        //     boolean isFound = false;
+        //     for(int j = 0; j < 5; j++) {
+        //         if(entry[i] == pool[j]) {
+        //             isFound = true;
+        //         }
+        //     }
+        //     if(isFound){
+        //         continue;
+        //     }else{
+        //         System.out.println("Password mismatch!");
+        //         return;
+        //     }
+        // }
 
-        System.out.println("Correct password!");
+        // System.out.println("Correct password!");
     }
 }
